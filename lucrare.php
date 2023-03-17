@@ -4,7 +4,7 @@ $filme = ["Tommorrow Never Dies", "Babylon", "Cabbie", "Close", "The Beats", "Pi
 echo("<b>Exercitiul a </b> <br>");
 $x = (int)$_POST['An'];
 if($x > count($filme)){
-	echo "Introduceti un nr mai mic";
+	echo "Linie modificata";
 }
 else {
 	$random_keys=array_rand($filme,$x);
@@ -22,7 +22,7 @@ foreach($chunk as $value){
 }
 
 echo "<br>";
-echo("<b>Exercitiul c </b> <br>");
+echo("<b>Salut</b> <br>");
 
 $bugetul = ["23549$", "487539$", "84385$", "583468$", "9737$", "785368$", "98735$", "984568$", "948754$", "23695$", "85368$", "874326$"];
 $combine = array_combine($filme, $bugetul);
