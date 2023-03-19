@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!--<style type="text/css">
+		
+  .typewriter {
+    font-family: 'Anonymous Pro', monospace;
+    width: 70%;  
+  }
+  h1 {
+    overflow: hidden;
+    margin: 0 auto;
+    display: inline-block;
+        font-weight: normal;
+
+  }
+  h1:after{
+   content: '';
+    display: inline-block;
+    background-color: white;
+    margin-left: 2px;
+    height: 25px;
+    width: 4px;
+    animation: cursor 0.4s infinite;
+  }
+
+  /* The typewriter cursor effect */
+  @keyframes cursor {
+    0% { opacity: 1; }
+      49% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 0; }
+  }
+
+
+	</style>-->
+  
+</head>
+<body>
+
+  <!--<div class="typewriter">
+    <h1 id="text">"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h1>
+  </div>
+
+<script type="text/javascript">
+        var i = 0;
+// var A = 0;
+    var tag = document.getElementById("text");
+    var html = document.getElementById("text").innerHTML;
+    var attr = tag.setAttribute("data", html);
+    var txt = tag.getAttribute("data");
+    var speed = 170;
+
+    function typeWriter() {
+      if (i <= txt.length) {
+        document.getElementById("text").innerHTML = txt.slice(0 , i + 1);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+        //console.log(document.getElementById("text").innerHTML);
+    }
+
+typeWriter();
+
+
+// function deltxt() {
+//      if (A <= txt.length) {
+    //      document.getElementById("text").innerHTML = txt.slice(0, -A);
+    //      A++;
+    //      setTimeout(deltxt, 50);
+    //    }
+    // }
+    // var backward = speed * txt.length + 1000   ;
+    // // console.log(backward);
+    // setTimeout( function () {
+    //  deltxt();
+    // },backward);
+  </script>-->
+
+
+
+
+<style type="text/css">
+:root {
+    /* COLORS */
+    --white: #efeff2;
+    --gray: #333;
+    --purple: #704b5b;/*bordo*/
+    --pink: #a69eb0;/*violet*/
+    /* RADII */
+    --button-radius: 0.7rem;
+    /* SIZES */
+    --max-width: 758px;
+    --max-height: 420px;
+    font-size: 17px;
+}
+.form__title {
+    font-weight: 300;
+    margin: 0;
+    margin-bottom: 1.25rem;
+}
+.container {
+    background-color: var(--white);
+    border-radius: var(--button-radius);
+    box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.25), 0 0.7rem 0.7rem rgba(0, 0, 0, 0.22);
+    height: var(--max-height);
+    height: 370px;
+    max-width: var(--max-width);
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.container__form {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.6s ease-in-out;
+}
+.container--signin {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+.container.right-panel-active .container--signin {
+    transform: translateX(100%);
+}
+.container--signup {
+    left: 0;
+    opacity: 0;
+    width: 50%;
+    z-index: 1;
+}
+.container.right-panel-active .container--signup {
+    animation: show 0.6s;
+    opacity: 1;
+    transform: translateX(100%);
+    z-index: 5;
+}
+.container__overlay {
+    height: 100%;
+    left: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transition: transform 0.6s ease-in-out;
+    width: 50%;
+    z-index: 100;
+}
+.container.right-panel-active .container__overlay {
+    transform: translateX(-100%);
+}
+.overlay {
+    background-color: var(--pink);
+    background: url("https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    left: -100%;
+    position: relative;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+    width: 200%;
+}
+.container.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+.overlay__panel {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+    width: 50%;
+}
+.overlay--left {
+    transform: translateX(-20%);
+}
+.container.right-panel-active .overlay--left {
+    transform: translateX(0);
+}
+.overlay--right {
+    right: 0;
+    transform: translateX(0);
+}
+.container.right-panel-active .overlay--right {
+    transform: translateX(20%);
+}
+.btn {
+    background-color: var(--purple);
+    background-image: linear-gradient(90deg, var(--purple) 0%, var(--pink) 74%);
+    border-radius: 20px;
+    border: 1px solid var(--purple);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    padding: 0.9rem 4rem;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+.form > .btn {
+    margin-top: 1.5rem;
+}
+.btn:active, .btnr:active {
+    transform: scale(0.95);
+}
+.btn:focus, .btnr:focus {
+    outline: none;
+}
+.form {
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 3rem;
+    height: 100%;
+    text-align: center;
+}
+@keyframes show {
+    0%, 49.99% { opacity: 0; z-index: 1; }
+
+    50%, 100% { opacity: 1; z-index: 5; }
+}
+.btnr {
+    background-color: var(--purple);
+    background-image: linear-gradient(270deg, var(--purple) 0%, var(--pink) 74%);
+    border-radius: 20px;
+    border: 1px solid var(--purple);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 0.6rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    padding: 0.3rem 1rem;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+
+
+
+.user-box {
+    position: relative;
+}
+.user-box input {
+    width: 100%;
+    width: 300px;
+    padding: 7px 0;
+    font-size: 17px;
+    color: black;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #704b5b;
+    outline: none;
+    background: transparent;
+}
+.user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 7px 0;
+    font-size: 15px;
+    color: #a69eb0;
+    pointer-events: none;
+    transition: 0.5s;
+}
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #704b5b;
+    font-size: 12px;
+}
+
+
+.box {
+  position: absolute;
+  width: 300px;
+  min-height: 400px;
+  max-height: 600;
+  margin-top: 80px;
+  margin: 20px 0px;
+  background-color: #efeff2;
+  color: black;
+  /*display: block; /*display none*/
+}
+.tab {
+  border-spacing: 27px 0px;
+  text-align: left;
+  font-size: 15px;
+  width: 300px;
+}
+#f, #m, #i1, #i2 {
+  accent-color: #704b5b;
+}
+.user-boxx {
+    position: relative;
+}
+.user-boxx input {
+    width: 100%;
+    width: 250px;
+    max-width: 250px;
+    padding: 5px 0;
+    font-size: 15px;
+    color: black;
+    margin-bottom: 27px;
+    border: none;
+    border-bottom: 1px solid #704b5b;
+    outline: none;
+    background: transparent;
+}
+.user-boxx label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    margin-left: 27px;
+    text-align: left;
+    padding: 3px 0;
+    font-size: 13px;
+    color: #a69eb0;
+    pointer-events: none;
+    transition: 0.5s;
+}
+.user-boxx input:focus ~ label,
+.user-boxx input:valid ~ label {
+    top: -13px;
+    left: 0;
+    color: #704b5b;
+    font-size: 10px;
+}
+.select::selection {
+  color: #efeff2;
+  background: #704b5b;
+}
+
+
+@media (max-width: 700px) {
+  .user-box input {
+    width: 100%;
+    width: 200px;
+  }
+  .user-boxx input {
+    width: 100%;
+    width: 217px;
+  }
+  .box{
+    width: 270px;
+  }
+}
+@media (max-width: 1150px) {
+  .container {
+    height: 450px;
+  }
+}
+
+</style>
+  <div class="container right-panel-active">
+        <!-- Sign Up -->
+        <div class="container__form container--signup">
+            <form action="#" class="form" id="form1">
+                <h2 class="form__title">Sign Up</h2>
+                <div class="user-box">
+                  <input type="text" name="" required="" id="NAMES" oninput="normalNAMES()">
+                  <label id="NAMESS">Username</label>
+                </div>
+                <div class="user-box">
+                  <input type="password" name="" required="" id="PASSS" oninput="normalPASSS()">
+                  <label id="PASSSS">Password</label>
+                </div>
+               
+               <!-- Mai Genial - Nu Se Putea) -->
+              <div class="box" id="display">
+                <div class="user-boxx">
+                  <input type="text" name="" required="" id="regexNume" oninput="normalNUME()" onselect="input_select()">
+                  <label id="XNume">Nume</label>
+                </div>
+                <div class="user-boxx">
+                  <input type="text" name="" required="" id="regexPrenume" oninput="normalPRENUME()" onselect="input_select()">
+                  <label id="XPrenume">Prenume</label>
+                </div>
+                <div class="user-boxx">
+                  <input type="text" name="" required="" id="regexEmail" oninput="normalEMAIL()">
+                  <label id="XEmail">Email</label>
+                </div>
+                <div class="user-boxx">
+                  <input type="text" name="" required="" id="regexTelefon" oninput="normalTELEFON()">
+                  <label id="XTelefon">Telefon</label>
+                </div>
+                <table class="tab">
+                  <tr>
+                    <td onmouseover="onHoverG()" onmouseout="offHoverG()">
+                    <div id="checkRadio" style="color: #a69eb0; font-size: 13px;">Genul</div>
+                    <input type="radio" name="radio" id="f" value="Feminin" onclick="normalGENUL()"><label for="f">Feminin</label><br>
+                    <input type="radio" name="radio" id="m" value="Masculin" onclick="normalGENUL()"><label for="m">Masculin</label>
+                    </td>
+                    <td onmouseover="onHoverI()" onmouseout="offHoverI()">
+                    <div id="checkBox" style="color: #a69eb0; font-size: 13px;">Interese</div>
+                    <input type="checkbox" id="i1" value="Personale" onclick="normalINTERESE()"><label for="i1">Personale</label><br>
+                    <input type="checkbox" id="i2" value="Studii" onclick="normalINTERESE()"><label for="i2">Studii</label>
+                    </td>
+                  </tr>
+                </table>
+                <br><div class="user-boxx">
+                  <input type="text" name="" required="" id="poza" id="regexFotografie" oninput="normalFOTOGRAFIE()">
+                  <label id="XFotografie">Fotografie</label>
+                </div>
+                <input type="button" value="choose photo" class="btnr" id="choose" style="top: -20px; position: relative;">
+                <input type="file" id="pfile" accept="image/png, image/jpeg" style="display: none;"><br>
+
+                <br>
+
+                <input type="submit" value="Continue" class="btnr" id="continue" onclick="signUP()">
+                <input type="reset" required="Reset" class="btnr" id="reset" onreset="reset()">
+
+              </div>
+                
+                <input type="submit" value="Sign Up" class="btn" onclick="submitUP()">
+            </form>
+        </div>
+
+        <!-- Sign In -->
+        <div class="container__form container--signin">
+            <form action="#" class="form" id="form2">
+                <h2 class="form__title">Sign In</h2>
+                <div class="user-box">
+                  <input type="text" name="" required="" id="NAMEL" oninput="normalNAMEL()">
+                  <label id="NAMELL">Username</label>
+                </div>
+                <div class="user-box">
+                  <input type="password" name="" required="" id="PASSL" oninput="normalPASSL()">
+                  <label id="PASSLL">Password</label>
+                </div>
+                <input type="submit" value="Sign In" class="btn" onclick="submitIN()">
+            </form>
+        </div>
+
+        <!-- Overlay -->
+        <div class="container__overlay">
+            <div class="overlay">
+                <div class="overlay__panel overlay--left">
+                    <button class="btn" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay__panel overlay--right">
+                    <button class="btn" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+<script type="text/javascript">
+var OpenFile = "false";
+document.getElementById("choose").addEventListener("click", () => { 
+document.getElementById("pfile").click();
+
+var poza = document.getElementById("pfile");
+poza.addEventListener("change", showFileName);
+OpenFile = "true"
+})
+function showFileName( event ) {
+  var poza = event.srcElement;
+  var fileName = poza.files[0].name;
+  document.getElementById("poza").value = fileName;
+}
+function input_select() {
+  document.getElementById("regexNume").classList.add('select');
+  document.getElementById("regexPrenume").classList.add('select');
+}
+
+
+
+const signInBtn = document.getElementById("signIn");
+const signUpBtn = document.getElementById("signUp");
+const fistForm = document.getElementById("form1");
+const secondForm = document.getElementById("form2");
+const container = document.querySelector(".container");
+
+signInBtn.addEventListener("click", () => {
+    container.classList.remove("right-panel-active");
+});
+
+signUpBtn.addEventListener("click", () => {
+    container.classList.add("right-panel-active");
+});
+
+fistForm.addEventListener("submit", (e) => e.preventDefault());
+secondForm.addEventListener("submit", (e) => e.preventDefault());
+
+
+
+function onHoverG() {
+  document.getElementById("checkRadio").style.color = "#704b5b";
+}
+function onHoverI() {
+  document.getElementById("checkBox").style.color = "#704b5b";
+}
+function offHoverG() {
+  document.getElementById("checkRadio").style.color = "#a69eb0";
+}
+function offHoverI() {
+  document.getElementById("checkBox").style.color = "#a69eb0";
+}
+
+
+  document.getElementById("regexNume").removeAttribute('required', '');
+  document.getElementById("regexPrenume").removeAttribute('required', '');
+  document.getElementById("regexEmail").removeAttribute('required', '');
+  document.getElementById("regexTelefon").removeAttribute('required', '');
+  document.getElementById("poza").removeAttribute('required', '');
+var yxUsername = "Introduceți un nume";
+var yxzUsername = "Acest username deja există";
+var yxPassword = "Introduceți o parolă";
+var yxzPassword = "Parola este prea mică"
+//SIGN UP - INFORMATION
+document.getElementById("display").style.display = "none";
+var sub = "false";
+function submitUP() {
+  sub = "true";
+
+  if(sub === "true"){
+    const boxes = document.querySelectorAll('.container');
+    boxes.forEach(container => {
+    container.style.height = '500px';
+    });
+
+
+    var nameS = document.getElementById("NAMES").value;
+    var passS = document.getElementById("PASSS").value;
+
+    if(nameS === ""){
+      document.getElementById("NAMESS").innerHTML = yxUsername;
+      document.getElementById("NAMES").style.borderBottom = "2px solid #C21807"; //RED
+      document.getElementById("NAMES").focus();
+    }
+    else if(logg.find(n => n.name === nameS)){
+      document.getElementById("NAMESS").innerHTML = yxzUsername;
+      document.getElementById("NAMES").style.borderBottom = "2px solid #C21807"; //RED
+      document.getElementById("NAMES").value = "";
+      document.getElementById("NAMES").focus();
+    }
+    else if(passS === ""){
+      document.getElementById("PASSSS").innerHTML = yxPassword;
+      document.getElementById("PASSS").style.borderBottom = "2px solid #C21807"; //RED
+      document.getElementById("PASSS").focus();
+    }
+    else if(passS.length < 6){
+      document.getElementById("PASSSS").innerHTML = yxzPassword;
+      document.getElementById("PASSS").style.borderBottom = "2px solid #C21807"; //RED
+      document.getElementById("PASSS").focus();
+    }
+    else{
+      logg.push({name: nameS, password: passS});
+
+      document.getElementById("NAMES").value = "";
+      document.getElementById("PASSS").value = "";
+
+      document.getElementById("display").style.display = "block";
+      sub = "false";
+
+
+      document.getElementById("NAMES").removeAttribute('required');
+      document.getElementById("PASSS").removeAttribute('required');
+
+      document.getElementById("regexNume").setAttribute('required', '');
+      document.getElementById("regexPrenume").setAttribute('required', '');
+      document.getElementById("regexEmail").setAttribute('required', '');
+      document.getElementById("regexTelefon").setAttribute('required', '');
+      document.getElementById("poza").setAttribute('required', '');
+    }
+    console.log(logg);
+  }
+  else{
+    document.getElementById("display").style.display = "none";
+  }
+}
+
+var xUsername = "Username";
+function normalNAMES() {
+  var nameS = document.getElementById("NAMES").value;
+
+  document.getElementById("NAMESS").innerHTML = xUsername;
+  document.getElementById("NAMES").style.borderBottom = "1px solid #704b5b";
+  document.getElementById("NAMES").focus();
+
+  var rn = /^[a-z0-9]*$/;
+  var k = document.getElementById("NAMES").value;
+  if(nameS !== ""){
+    if(!rn.test(k)){
+      var q = nameS.substr(0, nameS.length - 1);
+      document.getElementById("NAMES").value = q;
+    }
+  }
+}
+var xPassword = "Password"
+function normalPASSS() {
+  var passS = document.getElementById("PASSS").value;
+
+  document.getElementById("PASSSS").innerHTML = xPassword;
+  document.getElementById("PASSS").style.borderBottom = "1px solid #704b5b";
+  document.getElementById("PASSS").focus();
+
+  var rp = /^[A-Za-z0-9]*$/;
+  var k = document.getElementById("PASSS").value;
+  if(passS !== ""){
+    if(!rp.test(k)){
+      var q = passS.substr(0, passS.length - 1);
+      document.getElementById("PASSS").value = q;
+    }
+  }
+}
+
+
+
+var yxNume = "Introduceți un nume";
+var yxPrenume = "Introduceți un prenume";
+var yxEmail = "Introduceți un email";
+var yxzEmail = "Introduceți un email valid";
+var yxTelefon = "Introduceți un telefon";
+var yxzTelefon = "Introduceți un număr valid";
+var yxFotografie = "Selectați un file";
+var g1 = "NOT", g2 = "NOT", in1 = "NOT", in2 = "NOT";
+var resetPLEASE = "false";
+//CONTINUE - SIGN UP
+var logg = [ {name: "elvira", password: "elv2004"} ];
+function signUP(){
+    var numeS = document.getElementById("regexNume").value;
+    var prenumeS = document.getElementById("regexPrenume").value;
+    var emailS = document.getElementById("regexEmail").value;
+    var telefonS = document.getElementById("regexTelefon").value;
+    var genulS1 = document.getElementById("f");
+    var genulS2 = document.getElementById("m");
+    var intereseS1 = document.getElementById("i1");
+    var intereseS2 = document.getElementById("i2");
+    var fotografieS = document.getElementById("poza").value;
+    function check() {
+      if(genulS1.checked) { g1 = "Check" } else { g1 = "NOT" }
+      if(genulS2.checked) { g2 = "Check" } else { g2 = "NOT" }
+      if(intereseS1.checked) { in1 = "Check" } else { in1 = "NOT" }
+      if(intereseS2.checked) { in2 = "Check" } else { in2 = "NOT" }
+    }
+    check();
+    var re = /[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9]+\.[a-z]{2,3}/;
+
+
+    if(numeS === ""){
+      document.getElementById("XNume").innerHTML = yxNume;
+      document.getElementById("regexNume").style.borderBottom = "2px solid #C21807"; //RED
+      document.getElementById("regexNume").focus();
+    }
+    else if(prenumeS === ""){
+      document.getElementById("XPrenume").innerHTML = yxPrenume;
+      document.getElementById("regexPrenume").style.borderBottom = "2px solid #C21807"; //RED
+      document.getElementById("regexPrenume").focus();
+    }
+    else if(emailS === ""){
+      document.getElementById("XEmail").innerHTML = yxEmail;
+      document.getElementById("regexEmail").style.borderBottom = "2px solid #C21807"; //RED
+      document.getElementById("regexEmail").focus();
+    }
+    else if(!re.test(emailS)){
+      document.getElementById("XEmail").innerHTML = yxzEmail;
+      document.getElementById("regexEmail").style.borderBottom = "2px solid #C21807"; //RED
+      document.getElementById("regexEmail").focus();
+    }
+    else if(telefonS === ""){
+      document.getElementById("XTelefon").innerHTML = yxTelefon;
+      document.getElementById("regexTelefon").style.borderBottom = "2px solid #C21807"; //RED
+      document.getElementById("regexTelefon").focus();
+    }
+    else if(telefonS.length < 9){
+      document.getElementById("XTelefon").innerHTML = yxzTelefon;
+      document.getElementById("regexTelefon").style.borderBottom = "2px solid #C21807"; //RED
+      document.getElementById("regexTelefon").focus();
+    }
+    else if(g1 === "NOT" && g2 === "NOT"){
+      document.getElementById("checkRadio").style.color = "#C21807"; //RED
+    }
+    else if(in1 === "NOT" && in2 === "NOT"){
+      document.getElementById("checkBox").style.color = "#C21807"; //RED
+    }
+    else if(OpenFile === "false"){
+      document.getElementById("XFotografie").innerHTML = yxFotografie;
+      document.getElementById("poza").style.borderBottom = "2px solid #C21807"; //RED
+      document.getElementById("poza").value = "";
+      document.getElementById("poza").focus();
+    }
+    else{
+      const boxes = document.querySelectorAll('.container');
+      boxes.forEach(container => {
+      container.style.height = '370px';
+      });
+      document.getElementById("display").style.display = "none";
+
+      document.getElementById("reset").click();
+
+
+      document.getElementById("NAMES").setAttribute('required', '');
+      document.getElementById("PASSS").setAttribute('required', '');
+      document.getElementById("NAMES").blur();
+      document.getElementById("PASSS").blur();
+
+      document.getElementById("regexNume").removeAttribute('required');
+      document.getElementById("regexPrenume").removeAttribute('required');
+      document.getElementById("regexEmail").removeAttribute('required');
+      document.getElementById("regexTelefon").removeAttribute('required');
+      document.getElementById("poza").removeAttribute('required');
+    }
+}
+function RESET() {
+  if(resetPLEASE === "true"){
+    document.getElementById("continoe").addEventListener("click", () => { 
+    document.getElementById("reset").click();
+    })
+    resetPLEASE = "false";
+  }
+  else{
+    resetPLEASE = "false";
+  }
+}
+
+var xNume = "Nume";
+function normalNUME() {
+  var numeS = document.getElementById("regexNume").value;
+
+  document.getElementById("XNume").innerHTML = xNume;
+  document.getElementById("regexNume").style.borderBottom = "1px solid #704b5b";
+  document.getElementById("regexNume").focus();
+
+  var rn = /^[A-Za-z]+$/;
+  var k = document.getElementById("regexNume").value;
+  if(numeS !== ""){
+    if(!rn.test(k)){
+      var q = numeS.substr(0, numeS.length - 1);
+      document.getElementById("regexNume").value = q;
+    }
+  }
+}
+var xPrenume = "Prenume";
+function normalPRENUME() {
+  var prenumeS = document.getElementById("regexPrenume").value;
+
+  document.getElementById("XPrenume").innerHTML = xPrenume;
+  document.getElementById("regexPrenume").style.borderBottom = "1px solid #704b5b";
+  document.getElementById("regexPrenume").focus();
+
+  var rp = /^[A-Za-z]+$/;
+  var k = document.getElementById("regexPrenume").value;
+  if(prenumeS !== ""){
+    if(!rp.test(k)){
+      var q = prenumeS.substr(0, prenumeS.length - 1);
+      document.getElementById("regexPrenume").value = q;
+    }
+  }
+}
+var xEmail = "Email";
+function normalEMAIL() {
+  var emailS = document.getElementById("regexEmail").value;
+
+  document.getElementById("XEmail").innerHTML = xEmail;
+  document.getElementById("regexEmail").style.borderBottom = "1px solid #704b5b";
+  document.getElementById("regexEmail").focus();
+
+  var re = /^[a-z0-9.!@#$%&'*+/=?^_`{|}~-]*$/;
+  var k = document.getElementById("regexEmail").value;
+  if(emailS !== ""){
+    if(!re.test(k)){
+      var q = emailS.substr(0, emailS.length - 1);
+      document.getElementById("regexEmail").value = q;
+    }
+  }
+}
+var xTelefon = "Telefon";
+function normalTELEFON() {
+  var telefonS = document.getElementById("regexTelefon").value;
+
+  document.getElementById("XTelefon").innerHTML = xTelefon;
+  document.getElementById("regexTelefon").style.borderBottom = "1px solid #704b5b";
+  document.getElementById("regexTelefon").focus();
+
+  var rt = /^[0][0-9]{0,8}$/;
+  var k = document.getElementById("regexTelefon").value;
+  if(telefonS !== ""){
+    if(!rt.test(k)){
+      var q = telefonS.substr(0, telefonS.length - 1);
+      document.getElementById("regexTelefon").value = q;
+    }
+  }
+}
+var xFotografie = "Fotografie";
+function normalFOTOGRAFIE(){
+  var fotografieS = document.getElementById("poza").value;
+
+  document.getElementById("XFotografie").innerHTML = xFotografie;
+  document.getElementById("poza").style.borderBottom = "1px solid #704b5b";
+  document.getElementById("poza").focus();
+
+  var rf = /[^A-Za-z0-9]/;
+  var rff = /^[A-Za-z0-9]/;
+  var k = document.getElementById("poza").value;
+  if(fotografieS !== ""){
+    if(!rf.test(k)){
+      var q = fotografieS.substr(0, fotografieS.length - 1);
+      document.getElementById("poza").value = q;
+    }
+    if(!rff.test(k)){
+      var q = fotografieS.substr(0, fotografieS.length - 1);
+      document.getElementById("poza").value = q;
+    }
+  }
+}
+function normalGENUL() {
+  document.getElementById("checkRadio").style.color = "#704b5b";
+}
+function normalINTERESE() {
+  document.getElementById("checkBox").style.color = "#704b5b";
+}
+
+
+
+
+
+var ylUsername = "Nume inexistent";
+var ylPassword = "Parola este greșită";
+function submitIN() {
+  var nameL = document.getElementById("NAMEL").value;
+  var passL = document.getElementById("PASSL").value;
+  var nff, pff;
+
+  var verificare = logg.find(n => n.name === nameL);
+  if(!logg.find(n => n.name === nameL)){
+    document.getElementById("NAMELL").innerHTML = ylUsername;
+    document.getElementById("NAMEL").style.borderBottom = "2px solid #C21807"; //RED
+    document.getElementById("NAMEL").focus();
+  }
+  else{
+    if(logg.some(n => n.name === nameL)) nff = 1;
+    else nff = 0;
+    if(logg.some(p => verificare.password === passL)) pff = 1;
+    else pff = 0;
+
+    if(nameL === ""){
+      document.getElementById("NAMEL").style.borderBottom = "2px solid #C21807"; //RED
+      document.getElementById("NAMEL").focus();
+    }
+    else if(passL === ""){
+      document.getElementById("PASSL").style.borderBottom = "2px solid #C21807"; //RED
+      document.getElementById("PASSL").focus();
+    }
+    else if(nff === 0){
+      document.getElementById("NAMELL").innerHTML = ylUsername;
+      document.getElementById("NAMEL").style.borderBottom = "2px solid #C21807"; //RED
+      document.getElementById("NAMEL").focus();
+    }
+    else if(pff === 0){
+      document.getElementById("PASSLL").innerHTML = ylPassword;
+      document.getElementById("PASSL").style.borderBottom = "2px solid #C21807"; //RED
+      document.getElementById("PASSL").focus();
+    }
+    else if(logg.some(n => n.name === nameL) && logg.some(p => p.password === passL)){
+      window.open("PageInto.html", "_blank");
+
+      document.getElementById("NAMEL").value = "";
+      document.getElementById("PASSL").value = "";
+    }
+  }
+
+  console.log(logg);
+}
+
+var lUsername = "Username";
+function normalNAMEL() {
+  var nameL = document.getElementById("NAMEL").value;
+
+  document.getElementById("NAMELL").innerHTML = lUsername;
+  document.getElementById("NAMEL").style.borderBottom = "1px solid #704b5b";
+  document.getElementById("NAMEL").focus();
+
+  var rn = /^[a-z0-9]*$/;
+  var k = document.getElementById("NAMEL").value;
+  if(nameL !== ""){
+    if(!rn.test(k)){
+      var q = nameL.substr(0, nameL.length - 1);
+      document.getElementById("NAMEL").value = q;
+    }
+  }
+}
+var lPassword = "Password"
+function normalPASSL() {
+  var passL = document.getElementById("PASSL").value;
+
+  document.getElementById("PASSLL").innerHTML = lPassword;
+  document.getElementById("PASSL").style.borderBottom = "1px solid #704b5b";
+  document.getElementById("PASSL").focus();
+
+  var rp = /^[A-Za-z0-9]*$/;
+  var k = document.getElementById("PASSL").value;
+  if(passL !== ""){
+    if(!rp.test(k)){
+      var q = passL.substr(0, passL.length - 1);
+      document.getElementById("PASSL").value = q;
+    }
+  }
+}
+</script>
+</body>
+</html>
